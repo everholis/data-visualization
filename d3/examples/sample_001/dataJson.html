@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+
+<script src="../../data/d3/d3.v4.js"></script>
+
+<script>
+
+
+console.log("dataJson launched ");
+
+d3.json("./data.json", function(error,data){
+
+    console.log("dataJson ramda");
+
+    if(error) throw error;
+
+    data.forEach(function(d){
+        console.log(d.x + "," + d.y)
+    });
+
+});
+
+
+
+</script>
+
+
+test
+</body>

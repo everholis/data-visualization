@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+
+<script src="../../data/d3/d3.v4.js"></script>
+
+<script>
+
+console.log("dataCsv launched");
+
+d3.csv("./data.csv", function(error,data){
+    console.log("dataTsv ramda");
+	
+    if(error) throw error;
+	
+    //console.log(data);
+	
+	data.forEach(function(d){
+        console.log(d.x + "," + d.y)
+    });
+	
+});
+
+
+</script>
+test
+</body>
