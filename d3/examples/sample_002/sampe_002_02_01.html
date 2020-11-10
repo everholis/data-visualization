@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<script src="../../data/d3/d3.v4.js"></script>
+</head>
+
+<body>
+
+
+<p>aaa</p>
+<p>bbb</p>
+<p>ccc</p>
+
+<script>
+
+console.log("sampe_002_02_01 launched");
+
+var dataset = [ 10, 20, 30, 40, 50 ];
+
+d3.select("body")          // 1. select 'body' element
+  .selectAll("p")          // 2. select 'p' element of 'body'
+  .data(dataset)           // 3. bind dataset
+  .enter()                 // 4. get the enter selection (data missing elements).
+						   //    bound 3 element with data, therefore  need 2 element
+  .append("p")             // 5. create, append and select new 'p' elements.
+  .text(function(d){return d + "!"}); // 6. get or set the text content.
+
+/*
+[output]
+aaa
+bbb
+ccc
+40!
+50!
+*/
+
+</script>
+
+
+
+</body>
