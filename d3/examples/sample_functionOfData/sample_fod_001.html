@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        var data = [100, 200, 300];
+        var paragraph = d3.select("body")
+                .selectAll("p")
+                .data(data)
+                .text(function (d, i) {
+                    console.log("d: " + d);
+                    console.log("i: " + i);
+                    console.log("this: " + this);
+
+                    return d;
+                });
+				
+/*				
+		// output
+		d: 100 sample_fod_001.html:17:29
+		i: 0 sample_fod_001.html:18:29
+		this: [object HTMLParagraphElement] sample_fod_001.html:19:29
+		
+		d: 200 sample_fod_001.html:17:29
+		i: 1 sample_fod_001.html:18:29
+		this: [object HTMLParagraphElement] sample_fod_001.html:19:29
+		
+		d: 300 sample_fod_001.html:17:29
+		i: 2 sample_fod_001.html:18:29
+		this: [object HTMLParagraphElement]
+*/		
+
+    </script>
+</body>
+</html>
