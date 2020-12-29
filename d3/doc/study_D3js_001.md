@@ -395,3 +395,215 @@ var svg = d3.select("body") // body 요소 선택
     .attr('cy', 400);  		// 변환시킬 속성은 cy (y축으로 400까지 변환할 것임)
 ```
 
+
+
+## Data Loading
+
+csv, json, tsv, xml 파일로 부터, 데이터를 로드하여 데이터셋을 적용한다.
+
+
+
+| data.csv                                |
+| --------------------------------------- |
+| Name, Age<br />David, 32<br />Juila, 20 |
+
+```javascript
+<script>
+d3.csv("./data.csv", function(data) {
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i].Name);
+        console.log(data[i].Age);
+    }
+});
+</script>
+```
+
+
+
+#### SVG
+
+- Scalable Vector Graphics
+- 선, 사각형, 원 등의 모양을 표현할 수 있다.
+- text 기반의 이미지를 그린다.
+- 좌측 상단 모서리(0,0)에서 부터, 상대 좌표로 위치를 표현한다.
+
+#### Rect
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+    var width = 500;
+    var height = 500;
+
+    //Create SVG element
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+    //Create and append rectangle element
+    svg.append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", 200)
+            .attr("height", 100)
+</script>
+    
+<br>    
+<svg width="500" height="500">
+    <rect x="100" y="100" width="200" height="200"></rect>
+</svg>
+
+</body>
+</html>
+```
+
+#### Line
+
+```html
+<body>
+<script>
+    var width = 500;
+    var height = 500;
+
+    //Create SVG element
+    var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+    //Create line element inside SVG
+    svg.append("line")
+       .attr("x1", 100)
+       .attr("x2", 500)
+       .attr("y1", 50)
+       .attr("y2", 50)
+       .attr("stroke", "black")
+</script>
+    
+<br>    
+<svg width="500" height="500">
+    <line x1="100" y1="50" x2="500" y2="250" stroke="black" />
+</svg>
+    
+</body>
+```
+
+#### Circle
+
+```html
+<body>
+    
+</body>
+<script>
+    var width = 500;
+    var height = 500;
+
+    //Create SVG element
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+    //Append circle 
+    svg.append("circle")
+       .attr("cx", 250)
+       .attr("cy", 50)
+       .attr("r", 50)
+</script>
+<br>
+<svg width="500" height="500">
+    <ellipse cx="250" cy="25" rx="100" ry="25"/>
+</svg>
+
+</body>
+
+```
+
+#### ellipse
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+    var width = 500;
+    var height = 500;
+
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+    svg.append("ellipse")
+       .attr("cx", 250)
+       .attr("cy", 50)
+       .attr("rx", 150)
+       .attr("ry", 50)
+</script>
+    
+<br>    
+<svg width="500" height="500">
+    <ellipse cx="250" cy="25" rx="100" ry="25"/>
+</svg>
+
+</body>
+</html>
+```
+
+Text
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+    var width = 500;
+    var height = 500;
+
+    //Create SVG element
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+    
+    //Create group element
+    var g = svg.append("g")
+  
+    //Create and append ellipse element into group
+    var ellipse = g.append("ellipse")
+                   .attr("cx", 250)
+                   .attr("cy", 50)
+                   .attr("rx", 150)
+                   .attr("ry", 50)
+                   .append("text")
+
+    //Create and append text element into group
+    g.append("text")
+     .attr("x", 150)
+     .attr("y", 50)
+     .attr("stroke", "#fff")
+     .text("This is an ellipse!");
+</script>
+    
+<br>    
+<svg width="500" height="500">
+    <text x="250" y="25">Your text here</text>
+</svg>
+
+</body>
+</html>
+```
+
